@@ -13,6 +13,12 @@
     background-color: whitesmoke;
     display: flex;
     position: relative;
+    transition: background-color 5s;
+    transition-delay: background-color 1s;
+    transition-timing-function: ease-in-out;
+}
+.nav-bar:hover{
+    background-color: #FFE6E6;
 }
 .innerdiv-nav{
     display: flex;
@@ -29,7 +35,7 @@
 .nav-end{
     display: flex;
     column-gap: 30px;
-
+    visibility: hidden;
 }
 .nav-menu{
     background-color: transparent;
@@ -40,7 +46,10 @@
     align-items: center;
     font-weight: bolder;
     cursor: pointer;
+    transition: border-bottom .15s;
+    transition-timing-function: ease-in-out;
 }
+
 .cart-icon{
     height: 60px;
     width: 60px;
@@ -52,6 +61,8 @@
     border: 0px ;
     border-radius: 90%;
     margin-top: 4px;
+    transition: background-color .5s;
+    transition-timing-function: ease-in-out;
 }
 .nav-menu:hover{
     background-color: whitesmoke;
@@ -162,6 +173,8 @@
     font-size: 18px;
     font-weight: bold;
     margin-top: 8px;
+    transition: background-color .5s;
+    transition-timing-function: ease-in-out;
 }
 .login-button:hover{
     border: 2px solid var(--colorMain);
@@ -169,4 +182,66 @@
     color: black;
     cursor: pointer;
 }
+
+
+.navSideBar{
+    position: absolute;
+    right: 0;
+    margin: 0px;
+    width: 40%;
+    height: 100vh;
+    background-color: #900C3F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    translate: -400%;
+    transition: translate 200ms;
+}
+
+.hamburger-menu:has(input:checked) + .navSideBar{
+    translate: 0;
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input{
+    width: 35px;
+    height: 8px;
+    background-color: black;
+    border-radius: 999px;
+    transform-origin: left center;
+    content: "";
+    transition: width 200ms ease-in-out, opacity 200ms ease-in-out;
+}
+.hamburger-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 2;
+    
+}
+.hamburger-menu input{
+    appearance: none;
+    pointer-events: none;
+}
+.hamburger-menu input:checked{
+    width: 0px;
+    opacity: 0;
+}
+
+
+.hamburger-menu:has(input:checked)::before{
+    rotate: 45deg;
+    background-color: white;
+}
+.hamburger-menu:has(input:checked)::after{
+    rotate: -45deg;
+    background-color: white;
+}
+
+
 
